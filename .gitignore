@@ -1,0 +1,33 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+env/
+venv/
+*.env
+
+# PostgreSQL
+*.sql
+*.db
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor Files
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Dependency directories
+node_modules/
+
+# Python Dependency Files
+*.egg-info/
+*.egg
+dist/
+build/

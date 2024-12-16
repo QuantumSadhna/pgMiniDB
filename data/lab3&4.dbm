@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+ Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="1.1.4" use-changelog="false" max-obj-count="15"
+	 last-position="0,0" last-zoom="0.65" scene-rect="-280,0,2182.38,1076.8"
+	 default-schema="public" default-owner="postgres"
+	 layers="Default layer"
+	 active-layers="0"
+	 layer-name-colors="#000000"
+	 layer-rect-colors="#b4b4b4"
+	 show-layer-names="false" show-layer-rects="false">
+<database name="new_database" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layers="0" fill-color="#e1e1e1" name-color="#000000" sql-disabled="true">
+</schema>
+
+<table name="Movies" layers="0" collapse-mode="1" max-obj-count="8" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="280" y="60"/>
+	<column name="movie_id (PK)" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="name" not-null="true">
+		<type name="varchar" length="40"/>
+	</column>
+	<column name="realease_date" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="rating">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="budget">
+		<type name="float" length="0"/>
+	</column>
+	<column name="gross">
+		<type name="float" length="0"/>
+	</column>
+	<constraint name="Movies_pk" type="pk-constr" table="public.&quot;Movies&quot;">
+		<columns names="movie_id (PK)" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="director_id (PK)_Directors" index="5"/>
+	</customidxs>
+	<customidxs object-type="constraint">
+		<object name="Directors_fk" index="1"/>
+	</customidxs></table>
+
+<table name="Directors" layers="0" collapse-mode="2" max-obj-count="8" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="680" y="520"/>
+	<column name="director_id (PK)" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="first_name" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="last_name" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="year_of_birth">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="Directors_pk" type="pk-constr" table="public.&quot;Directors&quot;">
+		<columns names="director_id (PK)" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Actors" layers="0" collapse-mode="2" max-obj-count="9" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="860" y="60"/>
+	<column name="actor_id (PK)" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="first_name" not-null="true">
+		<type name="varchar" length="15"/>
+	</column>
+	<column name="last_name" not-null="true">
+		<type name="varchar" length="15"/>
+	</column>
+	<column name="date_of_birth">
+		<type name="date" length="0"/>
+	</column>
+	<column name="eye_color">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="Actors_pk" type="pk-constr" table="public.&quot;Actors&quot;">
+		<columns names="actor_id (PK)" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="location_id_birth_location" index="6"/>
+		<object name="university_id (PK)_Universities" index="5"/>
+	</customidxs>
+	<customidxs object-type="constraint">
+		<object name="Universities_fk" index="1"/>
+		<object name="birth_location_fk" index="2"/>
+	</customidxs></table>
+
+<table name="Genres" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="260" y="500"/>
+	<column name="genre_id (PK)" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="description">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="type">
+		<type name="varchar" length="10"/>
+	</column>
+	<constraint name="Genres_pk" type="pk-constr" table="public.&quot;Genres&quot;">
+		<columns names="genre_id (PK)" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Universities" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1560" y="380"/>
+	<column name="university_id (PK)" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="name" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="is_private" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="color" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+	<column name="num_of_students">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="Universities_pk" type="pk-constr" table="public.&quot;Universities&quot;">
+		<columns names="university_id (PK)" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Cinemas" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="280" y="740"/>
+	<column name="cinema_id (PK)" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="name" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="location" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="hall_type">
+		<type name="varchar" length="10"/>
+	</column>
+	<constraint name="Cinemas_pk" type="pk-constr" table="public.&quot;Cinemas&quot;">
+		<columns names="cinema_id (PK)" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Showtimes" layers="0" collapse-mode="2" max-obj-count="9" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="-260" y="600"/>
+	<column name="showtime_id (PK)" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="cinema_id">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[(FK TO CINEMAS)]]> </comment>
+	</column>
+	<column name="movie_id">
+		<type name="integer" length="0"/>
+		<comment> <![CDATA[(FK to movies)
+]]> </comment>
+	</column>
+	<column name="time" not-null="true">
+		<type name="time" length="0"/>
+	</column>
+	<column name="duration">
+		<type name="time" length="0"/>
+	</column>
+	<column name="price" not-null="true">
+		<type name="float" length="0"/>
+	</column>
+	<constraint name="Showtimes_pk" type="pk-constr" table="public.&quot;Showtimes&quot;">
+		<columns names="showtime_id (PK)" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="movie_id (PK)_Movies" index="6"/>
+	</customidxs>
+	<customidxs object-type="constraint">
+		<object name="Movies_fk" index="1"/>
+	</customidxs></table>
+
+<table name="Awards" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="-260" y="200"/>
+	<column name="award_id (PK)" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="name" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="category" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<constraint name="Awards_pk" type="pk-constr" table="public.&quot;Awards&quot;">
+		<columns names="award_id (PK)" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="Directors_has_many_Movies" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#2f3cb2"
+	 src-table="public.&quot;Directors&quot;"
+	 dst-table="public.&quot;Movies&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="Departments" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1420" y="820"/>
+	<column name="department_id (PK)" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="name" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="description">
+		<type name="varchar" length="70"/>
+	</column>
+	<column name="num_of_students">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="Departments_pk" type="pk-constr" table="public.&quot;Departments&quot;">
+		<columns names="department_id (PK)" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="birth_location" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1440" y="100"/>
+	<column name="location_id" not-null="true">
+		<type name="integer" length="50"/>
+	</column>
+	<column name="birth_city" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="birth_state" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="birth_country" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<constraint name="birth_location_pk" type="pk-constr" table="public.birth_location">
+		<columns names="location_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="Universities_has_many_Directors" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#3c688d"
+	 src-table="public.&quot;Universities&quot;"
+	 dst-table="public.&quot;Directors&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="102.055" y="-74.4886"/>
+	</label>
+</relationship>
+
+<relationship name="Universities_has_many_Actors" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#8e6977"
+	 src-table="public.&quot;Universities&quot;"
+	 dst-table="public.&quot;Actors&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Movies_has_many_Awards" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#3ef846"
+	 src-table="public.&quot;Movies&quot;"
+	 dst-table="public.&quot;Awards&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Movies_has_many_Showtimes" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#44c7a8"
+	 src-table="public.&quot;Movies&quot;"
+	 dst-table="public.&quot;Showtimes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="many_Movies_has_many_Genres" type="relnn" layers="0"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#c30d05"
+	 src-table="public.&quot;Movies&quot;"
+	 dst-table="public.&quot;Genres&quot;"
+	 src-required="false" dst-required="false"
+	 table-name="many_Movies_has_many_Genres"/>
+
+<relationship name="Cinemas_has_many_Showtimes" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#806f4b"
+	 src-table="public.&quot;Cinemas&quot;"
+	 dst-table="public.&quot;Showtimes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="many_Movies_has_many_Actors" type="relnn" layers="0"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#d93095"
+	 src-table="public.&quot;Movies&quot;"
+	 dst-table="public.&quot;Actors&quot;"
+	 src-required="false" dst-required="false"
+	 table-name="many_Movies_has_many_Actors"/>
+
+<relationship name="birth_location_has_many_Actors" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#03ed58"
+	 src-table="public.birth_location"
+	 dst-table="public.&quot;Actors&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="birth_location_has_many_Directors" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#3ea602"
+	 src-table="public.birth_location"
+	 dst-table="public.&quot;Directors&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-161.24" y="36.647"/>
+	</label>
+</relationship>
+
+<relationship name="Departments_has_many_Actors" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#9f4693"
+	 src-table="public.&quot;Departments&quot;"
+	 dst-table="public.&quot;Actors&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Departments_has_many_Directors" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#964983"
+	 src-table="public.&quot;Departments&quot;"
+	 dst-table="public.&quot;Directors&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Universities_has_many_Departments" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#f0f7f8"
+	 src-table="public.&quot;Universities&quot;"
+	 dst-table="public.&quot;Departments&quot;"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>

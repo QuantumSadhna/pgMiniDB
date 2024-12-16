@@ -1,0 +1,39 @@
+# Install pgModeler (Database Design Tool):
+   - Download pgModeler from: https://pgmodeler.io/download
+   - Follow the installation instructions on the website for your operating system.
+   - Open the project file `relationships.dbm` in pgModeler to visualize the database schema.
+   - Optionally, you can modify and re-export the schema using pgModeler.
+
+# Install pgAdmin (PostgreSQL Administration Tool):
+   - Download pgAdmin from: https://www.pgadmin.org/download/
+   - Follow the installation instructions for your OS.
+   - Use pgAdmin to connect to your PostgreSQL database, run queries, and manage data.
+   - After installation, create a new server connection in pgAdmin:
+     - Host: localhost
+     - Port: 5432
+     - Database: [Your Database Name]
+     - Username: [Your PostgreSQL Username]
+     - Password: [Your PostgreSQL Password]
+
+# Java environment setup for accessing the PostgreSQL database
+
+1. Install Java Development Kit (JDK) version 8 or above.
+   - Download from: https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
+   - Ensure `java` is accessible from the command line.
+
+2. Install Maven for dependency management and project build.
+   - Download from: https://maven.apache.org/download.cgi
+   - Set up environment variables: `MAVEN_HOME` and `PATH` to include Maven bin directory.
+
+3. PostgreSQL JDBC Driver:
+   - This project uses PostgreSQL JDBC driver to interact with the database.
+   - Maven will handle this dependency automatically if you use the provided `pom.xml` file.
+
+4. PostgreSQL Database:
+   - Ensure you have PostgreSQL installed and running.
+   - Set up your database using the provided `schema.sql` and populate it with `seed_data.sql`.
+
+# Additional Steps
+- Run the Java application using Maven:
+    mvn clean install
+    mvn exec:java -Dexec.mainClass="com.pgminiDB.app"

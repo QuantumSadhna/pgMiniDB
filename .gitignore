@@ -7,10 +7,6 @@ env/
 venv/
 *.env
 
-# PostgreSQL
-*.sql
-*.db
-
 # System Files
 .DS_Store
 Thumbs.db
